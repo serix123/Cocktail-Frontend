@@ -3,11 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import '../node_modules/font-awesome/css/font-awesome.min.css'; 
-
+import { Provider } from 'react-redux'
+import Store from './redux/Store'
 ReactDOM.render(
-  
-  <App />,
+  <Provider store={Store}>
+    <App />
+  </Provider>,  
   document.getElementById('root')
 );
 
