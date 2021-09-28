@@ -3,11 +3,13 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import {getRecipes} from './redux/actions/recipeActions'
 
-import Navbar from './components/nav/Navbar';
+
 import Home from './components/screens/Home';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
+import Navbar from './components/nav/Navbar';
 import Recipes from './components/nav/Recipes';
+import NewDrink from './components/drinks/NewDrink'
 
 
 function App() {
@@ -23,9 +25,9 @@ function App() {
         <Navbar />
         <div className="content ">
           <Switch>
-            <Route path="/Recipes" component={Recipes} />
-            <Route path="/Examples" component={Recipes} />
-            <Route path="/Blog" component={Recipes} />
+            <Route path="/Browse" component={Recipes} />
+            <Route path="/Create" component={NewDrink} />
+            <Route path="/About" component={Recipes} />
             <Route path="/SignIn" component={Login} />
             <Route path="/SignUp" component={Register}/>
             <Route exact path="/" component={Home}/>

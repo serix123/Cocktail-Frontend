@@ -22,7 +22,7 @@ function Register() {
 
   return (
     <div className="flex flex-col min-h-screen ">
-      <div className="flex-grow sm:px-10 pb-14 pt-20 sm:pt-28  ">
+      <div className="flex-grow sm:px-10 pt-28 sm:pt-32 ">
         <div className="flex flex-col sm:flex-row max-w-6xl mx-auto sm:rounded-2xl shadow-md overflow-hidden rounded-b-2xl" style={{'min-height': "540px"}}>
           {/* side image */}
           <div className="register-img w-full h-48 sm:h-auto"></div>

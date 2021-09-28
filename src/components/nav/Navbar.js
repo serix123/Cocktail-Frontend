@@ -6,7 +6,9 @@ import SignedOutLinks from './SignedOutLinks';
 
 export default function Navbar() {
 
-  const[clicked, setClicked] = useState(false)
+  const [clicked, setClicked] = useState(false)
+  
+  const [isLoggedIn, setIsLoggedIn] = useState(true)
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -29,21 +31,21 @@ export default function Navbar() {
         </button>
       </div>
       <div className={`w-full ${clicked ? "block":"hidden"} flex-grow lg:flex lg:items-center lg:w-auto `}>
-        <div className="font-body text-lg lg:flex-grow">
-          <NavLink to="/Recipes" className="relative block mt-4 lg:inline-block lg:mt-0 text-gray-400 hover:text-gray-600 mr-4">
-            <div className="nav-link">Recipes</div>
+        <div className="font-body text-md lg:flex-grow">
+          <NavLink to="/Browse" className="relative block mt-4 lg:inline-block lg:mt-0 text-gray-400 hover:text-gray-600 mr-4">
+            <div className="nav-link">Browse</div>
             
           </NavLink>
-          <NavLink to="/Examples" className="relative block mt-4 lg:inline-block lg:mt-0 text-gray-400 hover:text-gray-600 mr-4">
-            <div className="nav-link">Examples</div>
+          <NavLink to="/Create" className="relative block mt-4 lg:inline-block lg:mt-0 text-gray-400 hover:text-gray-600 mr-4">
+            <div className="nav-link">Create</div>
             
           </NavLink>
-          <NavLink to="/Blog" className="relative block mt-4 lg:inline-block lg:mt-0 text-gray-400 hover:text-gray-600">
-            <div className="nav-link">Blog</div>
+          <NavLink to="/About" className="relative block mt-4 lg:inline-block lg:mt-0 text-gray-400 hover:text-gray-600">
+            <div className="nav-link">About</div>
           </NavLink>
         </div>
-        {/* <SignedInLinks /> */}
-        <SignedOutLinks/>
+        {isLoggedIn ? <SignedInLinks/> : <SignedOutLinks/> }
+        
       </div>
     </nav>
   )
