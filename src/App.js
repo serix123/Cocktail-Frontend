@@ -1,5 +1,7 @@
+import React, { useEffect } from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-
+import { useDispatch } from 'react-redux';
+import {getRecipes} from './redux/actions/recipeActions'
 
 import Navbar from './components/nav/Navbar';
 import Home from './components/screens/Home';
@@ -9,6 +11,12 @@ import Recipes from './components/nav/Recipes';
 
 
 function App() {
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getRecipes());
+  }, [dispatch])
+
   return (
     <BrowserRouter>
       <div className="App">
