@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function NewDrink() {
+function DynamicForm() {
 
   const [recipeList, setRecipeList] = useState([
     {ingredientName: "", qty: 0, qtyType: "" }
@@ -52,18 +52,7 @@ function NewDrink() {
             </div>
 
             <form action="" onSubmit={null} className="mt-5">
-              <div className="">
-                <label htmlFor="email" className="">
-                  <span className="">Author</span>
-                </label>
-                <input
-                  className="border border-gray-200 rounded-md shadow-sm pt-2 outline-none"
-                  type="text"
-                  id="username"
-                  required
-                  onChange={null}
-                />                
-              </div>
+              
               <div className="">
                 <label htmlFor="email" className="">
                   <span className="">Ingredients</span>
@@ -108,35 +97,6 @@ function NewDrink() {
                  
               </div>
               {console.log(Object.keys(recipeList[0]))}
-              {/* <div className="">
-                <label htmlFor="email" classlName="">
-                  <span className="">Steps</span>
-                </label>
-                {stepList.map((x, i) => {
-                  return (
-                    <div className="flex items-center mt-2">
-                                        
-                      <input className="border border-gray-200 py-2 px-2 rounded-md shadow-sm outline-none mr-2"
-                        name="ingredientName"
-                        value={x.step}
-                        type="text"
-                        required
-                        placeholder="Name"
-                        onChange={e => handleInputChange(e, i)}
-                      />
-
-                      {stepList.length !== 1 && 
-                        <button className="btn-round mr-2 " onClick={() => handleRemoveClick(i)}><i class="fa-solid fa-minus"></i></button>}
-                      
-                      {stepList.length - 1 === i && 
-                        <button className="btn-round " onClick={handleAddClick}><i class="fa-solid fa-plus"></i></button>}
-                      
-                    </div>
-                  );
-                })}
-                 
-              </div> */}
-
 
             </form>
           </div>
@@ -152,4 +112,4 @@ function NewDrink() {
   )
 }
 
-export default NewDrink
+export default DynamicForm
