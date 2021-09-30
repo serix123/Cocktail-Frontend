@@ -25,8 +25,8 @@ function DrinkSummary() {
           <div className="p-5 flex flex-col flex-grow justify-between hover:bg-gray-100 border-t border-gray-100">
             <div className="">
               <div className="">
-                <h3 class="font-main font-bold tracking-wide text-sm sm:text-2xl mb-2 overflow-hidden max-w-full">PLAZA Hot Buttered Rum</h3>
-                <p class="font-body text-xs sm:text-sm text-gray-500 overflow-ellipsis overflow-hidden">Hot Buttered Rum is essentially the OG butter beer. They both are golden, richly sweet and have that beautiful head that will give you a silly mustache when drink it. When it's freezing outside, rum is the only thing that'll do. Add in butter, sugar, ice cream, and healthy dose of cinnamon and you've got heartwarming wintertime magic in a glass. </p>
+                <h3 className="font-main font-bold tracking-wide text-sm sm:text-2xl mb-2 overflow-hidden max-w-full">PLAZA Hot Buttered Rum</h3>
+                <p className="font-body text-xs sm:text-sm text-gray-500 overflow-ellipsis overflow-hidden">Hot Buttered Rum is essentially the OG butter beer. They both are golden, richly sweet and have that beautiful head that will give you a silly mustache when drink it. When it's freezing outside, rum is the only thing that'll do. Add in butter, sugar, ice cream, and healthy dose of cinnamon and you've got heartwarming wintertime magic in a glass. </p>
               </div>
             </div>
           </div>

@@ -1,46 +1,42 @@
-<<<<<<< Updated upstream
-import logo from './logo.svg';
-import './App.css';
-=======
+import React, { useEffect } from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import React, { useEffect } from 'react';
-
 import { useDispatch } from 'react-redux';
-import { getPosts } from './redux/actions/recipeActions';
+import {getRecipes} from './redux/actions/recipeActions'
 
-import Navbar from './components/nav/Navbar';
+
 import Home from './components/screens/Home';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
+import Navbar from './components/nav/Navbar';
 import Recipes from './components/nav/Recipes';
+import NewDrink from './components/drinks/NewDrink'
+import DynamicForm from './components/drinks/DynamicForm'
 
->>>>>>> Stashed changes
 
 function App() {
 
   const dispatch = useDispatch();
-
   useEffect(() => {
-    dispatch(getPosts())
-  }, [dispatch]);
+    dispatch(getRecipes());
+  }, [dispatch])
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Navbar />
+        <div className="content ">
+          <Switch>
+            <Route path="/Browse" component={Recipes} />
+            <Route path="/newRecipe" component={DynamicForm} />
+            <Route path="/Create" component={NewDrink} />
+            <Route path="/About" component={Recipes} />
+            <Route path="/SignIn" component={Login} />
+            <Route path="/SignUp" component={Register}/>
+            <Route exact path="/" component={Home}/>
+          </Switch>
+        </div>
+      </div>
+    </BrowserRouter>
   );
 }
 

@@ -1,0 +1,156 @@
+[{
+  "recipeName": "umeshu highball",
+  "author": {
+    "$oid": "614ff0aa75294a44a1bf9e44"
+  },
+  "ingredients": [
+    {
+      "name": "umeshu",
+      "quantity": 60,
+      "quantityType": "ml"
+    },
+    {
+      "name": "soda",
+      "quantity": 60,
+      "quantityType": "ml"
+    },
+    {
+      "name": "lemon slice",
+      "quantityType": "add to taste"
+    }
+  ],
+  "steps": [
+    {
+      "text": "add ice to glass."
+    },
+    {
+      "text": "add umeshu to 2/5 of glass"
+    },
+    {
+      "text": "add soda to 4/5 of glass"
+    },
+    {
+      "text": " gently stir"
+    },
+    {
+      "text": "squeeze lemon and enjoy"
+    }
+  ],
+  "dateCreated": {
+    "$date": "2021-09-26T05:44:13.132Z"
+  }
+},{
+  "recipeName": "kahlua milk cocktail",
+  "author": {
+    "$oid": "614ff0aa75294a44a1bf9e44"
+  },
+  "ingredients": [
+    {
+      "name": "coffee liquer",
+      "quantity": 60,
+      "quantityType": "ml"
+    },
+    {
+      "name": "milk",
+      "quantityType": "add to taste"
+    },
+    {
+      "name": "cocoa powder",
+      "quantityType": "add to taste"
+    }
+  ],
+  "steps": [
+    {
+      "text": "add ice to glass."
+    },
+    {
+      "text": "add kahlua to 1/3 of glass"
+    },
+    {
+      "text": "add milk to 4/5 of glass"
+    },
+    {
+      "text": " gently stir"
+    },
+    {
+      "text": "sprinkle cocoa powder or instant coffee"
+    }
+  ],
+  "dateCreated": {
+    "$date": "2021-09-26T05:47:39.813Z"
+  }
+},{
+  "recipeName": "the cowboy",
+  "author": {
+    "$oid": "614ff0aa75294a44a1bf9e44"
+  },
+  "ingredients": [
+    {
+      "name": "whiskey",
+      "quantity": 45,
+      "quantityType": "ml"
+    },
+    {
+      "name": "milk",
+      "quantity": 90,
+      "quantityType": "ml"
+    }
+  ],
+  "steps": [
+    {
+      "text": "add ice to glass."
+    },
+    {
+      "text": "add whiskey to 1/3 of glass"
+    },
+    {
+      "text": "add milk to 4/5 of glass"
+    },
+    {
+      "text": " gently stir"
+    },
+    {
+      "text": "enjoy"
+    }
+  ],
+  "dateCreated": {
+    "$date": "2021-09-26T05:50:19.880Z"
+  }
+},{
+  "recipeName": "the kitty",
+  "author": {
+    "$oid": "614ff0aa75294a44a1bf9e44"
+  },
+  "ingredients": [
+    {
+      "name": "red wine",
+      "quantity": 75,
+      "quantityType": "ml"
+    },
+    {
+      "name": "ginger ale",
+      "quantity": 75,
+      "quantityType": "ml"
+    }
+  ],
+  "steps": [
+    {
+      "text": "add ice to glass."
+    },
+    {
+      "text": "add red wine to 1/3 of glass"
+    },
+    {
+      "text": "add ginger ale to 3/5 of glass"
+    },
+    {
+      "text": " gently stir"
+    },
+    {
+      "text": "add lemon juice to taste and enjoy."
+    }
+  ],
+  "dateCreated": {
+    "$date": "2021-09-26T05:51:41.758Z"
+  }
+}]
