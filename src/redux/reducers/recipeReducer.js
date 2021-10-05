@@ -13,7 +13,7 @@ export const recipeReducer = (state = {}, action) => {
       return action.payload;
     
     case CREATE_RECIPE:
-      return state;
+      return [...state,action.payload];
       
     case UPDATE_RECIPE:
       return state;

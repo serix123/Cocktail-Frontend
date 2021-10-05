@@ -1,11 +1,12 @@
-import React from 'react'
+import React from "react";
+import { useSelector } from "react-redux";
+import DrinkSummary from "./DrinkSummary";
 
 function DrinkDetails() {
-  return (
-    <div>
-      
-    </div>
-  )
+  const recipes = useSelector((state) => state.recipe);
+  console.log(recipes);
+
+  return <div></div>;
 }
 
-export default DrinkDetails
+export default DrinkDetails;

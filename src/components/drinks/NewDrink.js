@@ -60,38 +60,42 @@ function NewDrink() {
         <div className="col-span-full lg:col-span-2 row-span-2 md:row-span-3 order-last lg:order-first">
           <div className="shadow-lg rounded-2xl border-t border-l border-r border-gray-200 w-full h-full p-5">
             <div className="flex items-center">
-              <span className="text-lg ">
-                <i className="fa-solid fa-pen-to-square"></i>
+              <span className=" text-red-500 text-3xl mr-2">
+                <i className="fa-solid fa-square-pen"></i>
               </span>
-              <h3 className="font-body font-semibold text-3xl text-gray-700">
+              <h3 className="font-main font-bold text-3xl text-gray-700 tracking-tighter">
                 Welcome
               </h3>
             </div>
 
-            <form action="" onSubmit={null} className="mt-5">
-              <div className="">
-                <label htmlFor="email" className="">
+            <form action="" onSubmit={null} className="mt-5 font-body ">
+              <div className="mt-4">
+                <label htmlFor="recipeName" className="form-label">
                   <span className="">Recipe Name</span>
                 </label>
+
                 <input
-                  className="border border-gray-200 rounded-md shadow-sm pt-2 outline-none"
+                  className="block border border-gray-200 py-2 px-2 rounded-md shadow-sm pt-2 outline-none"
                   type="text"
-                  id="username"
+                  id="recipeName"
+                  placeholder="Cowboy"
                   required
                   onChange={(e) => onChangeHandler(e, "recipeName")}
                 />
               </div>
-              <div className="">
-                <label for="files">Image:</label>
+              <div className="mt-4">
+                <label for="files" className="form-label">
+                  <span className="">Image</span>
+                </label>
                 <input
-                  className="border border-gray-200 rounded-md shadow-sm pt-2 outline-none"
+                  className="block mt-2"
                   type="file"
                   id="files"
                   name="files"
                 />
               </div>
-              <div className="">
-                <label htmlFor="recipe" className="">
+              <div className="mt-4">
+                <label htmlFor="recipe" className="form-label">
                   <span className="">Ingredients</span>
                 </label>
                 {recipeList.map((x, i) => {
@@ -185,8 +189,8 @@ function NewDrink() {
                   );
                 })}
               </div>
-              <div className="">
-                <label htmlFor="recipe" className="">
+              <div className="mt-4">
+                <label htmlFor="recipe" className="form-label">
                   <span className="">Steps</span>
                 </label>
                 {stepList.map((x, i) => {
@@ -245,8 +249,8 @@ function NewDrink() {
                   );
                 })}
               </div>
-              <div className="">
-                <label htmlFor="email" className="">
+              <div className="mt-4">
+                <label htmlFor="email" className="form-label">
                   <span className="">Description</span>
                 </label>
                 <textarea
