@@ -7,24 +7,24 @@ import {
 } from '../constants/recipesConstants'; 
 
 
-export const recipeReducer = (state = {}, action) => {
+export const recipeReducer = (recipes = [], action) => {
   switch (action.type) {
     case GET_ALL_RECIPES:
       return action.payload;
-    
+    // fix state
     case CREATE_RECIPE:
-      return [...state,action.payload];
+      return [...recipes, action.payload];
       
     case UPDATE_RECIPE:
-      return state;
+      return recipes;
 
     case DELETE_RECIPE:
-      return state;
+      return recipes;
 
     case GET_RECIPE:
-      return state;
+      return recipes;
     
     default:
-      return state;
+      return recipes;
   }
 }

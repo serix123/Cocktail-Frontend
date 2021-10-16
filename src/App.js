@@ -10,6 +10,7 @@ import Register from './components/auth/Register';
 import Navbar from './components/nav/Navbar';
 import Recipes from './components/nav/Recipes';
 import NewDrink from './components/drinks/NewDrink'
+import DrinkSummary from "./components/drinks/DrinkDetails";
 import DynamicForm from './components/drinks/DynamicForm'
 
 
@@ -27,12 +28,13 @@ function App() {
         <div className="content ">
           <Switch>
             <Route path="/Browse" component={Recipes} />
+            <Route path="/Recipe/:id" component={DrinkSummary} exact></Route>
             <Route path="/newRecipe" component={DynamicForm} />
             <Route path="/Create" component={NewDrink} />
             <Route path="/About" component={Recipes} />
             <Route path="/SignIn" component={Login} />
-            <Route path="/SignUp" component={Register}/>
-            <Route exact path="/" component={Home}/>
+            <Route path="/SignUp" component={Register} />
+            <Route exact path="/" component={Home} />
           </Switch>
         </div>
       </div>

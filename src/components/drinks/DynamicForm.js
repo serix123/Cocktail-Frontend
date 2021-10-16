@@ -1,8 +1,9 @@
 import React, { useState } from "react";
+import FileBase from "react-file-base64";
 import { useDispatch } from "react-redux";
-import { createRecipes} from "../../redux/actions/recipeActions";
+import { createRecipes } from "../../redux/actions/recipeActions";
 
-function NewDrink() {
+function DynamicForm() {
   const [recipe, setRecipe] = useState({
     recipeName: "",
     image: "",
@@ -20,8 +21,16 @@ function NewDrink() {
     e.preventDefault();
 
     dispatch(createRecipes(recipe));
-
-    console.log(recipe);
+    setRecipe({
+      recipeName: "",
+      image: "",
+      ingredients: [],
+      steps: [],
+      description: "",
+    });
+    setRecipeList([{ ingredientName: "", qty: Number, qtyType: "" }]);
+    setStepList([{ step: "" }]);
+    e.target.reset();
   };
 
   const onChangeHandler = (event, fieldName) => {
@@ -74,11 +83,7 @@ function NewDrink() {
               </h3>
             </div>
 
-            <form
-              action=""
-              onSubmit={handleSubmit}
-              className="mt-5 font-body "
-            >
+            <form action="" onSubmit={handleSubmit} className="mt-5 font-body ">
               <div className="mt-4">
                 <label htmlFor="recipeName" className="form-label">
                   <span className="">Recipe Name</span>
@@ -86,6 +91,7 @@ function NewDrink() {
 
                 <input
                   className="block border border-gray-200 py-2 px-2 rounded-md shadow-sm pt-2 outline-none"
+                  value={recipe.recipeName}
                   type="text"
                   id="recipeName"
                   placeholder="Cowboy"
@@ -94,14 +100,15 @@ function NewDrink() {
                 />
               </div>
               <div className="mt-4">
-                <label for="files" className="form-label">
+                <label htmlFor="files" className="form-label">
                   <span className="">Image</span>
                 </label>
-                <input
-                  className="block mt-2"
+                <FileBase
                   type="file"
-                  id="files"
-                  name="files"
+                  multiple={false}
+                  onDone={({ base64 }) =>
+                    setRecipe({ ...recipe, image: base64 })
+                  }
                 />
               </div>
               <div className="mt-4">
@@ -110,7 +117,7 @@ function NewDrink() {
                 </label>
                 {recipeList.map((x, i) => {
                   return (
-                    <div className="flex items-center mt-2">
+                    <div className="flex items-center mt-2" key={x}>
                       <input
                         className="border border-gray-200 py-2 px-2 rounded-md shadow-sm outline-none mr-2"
                         name="ingredientName"
@@ -205,13 +212,12 @@ function NewDrink() {
                 </label>
                 {stepList.map((x, i) => {
                   return (
-                    <div className="flex items-center mt-2">
+                    <div className="flex items-center mt-2" key={x}>
                       <input
-                        className="border border-gray-200 py-2 px-2 rounded-md shadow-sm outline-none mr-2"
+                        className="border border-gray-200 py-2 px-2 rounded-md shadow-sm outline-none w-72 mr-2"
                         name="step"
                         value={x.step}
                         type="text"
-                        maxLength="25"
                         required
                         placeholder={`${i + 1}`}
                         onChange={(e) =>
@@ -255,18 +261,21 @@ function NewDrink() {
                 </label>
                 <textarea
                   className="border border-gray-200 py-2 px-2 rounded-md shadow-sm outline-none w-full"
-                  value={null}
+                  value={recipe.description}
                   onChange={(e) => onChangeHandler(e, "description")}
                   rows="3"
                 />
               </div>
               <div className="flex-grow align-baseline text-lg text-center px-4 py-2  border rounded-full shadow-md  bg-red-500 text-white hover:bg-red-600 hover:shadow-lg mt-4 transition duration-300 ease-in-out">
-                <button className="font-body font-semibold " type="submit">
+                <button
+                  className="font-body font-semibold w-full "
+                  type="submit"
+                >
                   Create Recipe
                 </button>
               </div>
+              {console.log(recipe)}
             </form>
-            {console.log(recipe)}
           </div>
         </div>
 
@@ -278,4 +287,4 @@ function NewDrink() {
   );
 }
 
-export default NewDrink;
+export default DynamicForm;

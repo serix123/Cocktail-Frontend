@@ -1,24 +1,34 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { createRecipes } from "../../redux/actions/recipeActions";
 
 function NewDrink() {
   const [recipe, setRecipe] = useState({
     recipeName: "",
-    file: "",
-    recipeList: [],
-    stepList: [],
+    image: "",
+    ingredients: [],
+    steps: [],
     description: "",
   });
   const [recipeList, setRecipeList] = useState([
     { ingredientName: "", qty: Number, qtyType: "" },
   ]);
   const [stepList, setStepList] = useState([{ step: "" }]);
+  const dispatch = useDispatch();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    dispatch(createRecipes(recipe));
+
+    console.log(recipe);
+  };
 
   const onChangeHandler = (event, fieldName) => {
     setRecipe((prevState) => {
       return { ...prevState, [fieldName]: event.target.value };
     });
   };
-
   // for array functions
   const handleInputChange = (e, index, state, setState, fieldName) => {
     const { name, value, type } = e.target;
@@ -29,7 +39,6 @@ function NewDrink() {
       return { ...prevState, [fieldName]: state };
     });
   };
-
   // Add empty state
   const handleAddClick = (x, state, stateAction, fieldName) => {
     const keys = Object.keys(x);
@@ -42,7 +51,6 @@ function NewDrink() {
       return { ...prevState, [fieldName]: state };
     });
   };
-
   const handleRemoveClick = (state, setState, index, fieldName) => {
     const list = [...state];
     list.splice(index, 1);
@@ -51,8 +59,6 @@ function NewDrink() {
       return { ...prevState, [fieldName]: list };
     });
   };
-
-  // TODO Add recipe form
 
   return (
     <div className="flex min-h-screen justify-center content-center pt-28 sm:pt-32">
@@ -68,7 +74,7 @@ function NewDrink() {
               </h3>
             </div>
 
-            <form action="" onSubmit={null} className="mt-5 font-body ">
+            <form action="" onSubmit={handleSubmit} className="mt-5 font-body ">
               <div className="mt-4">
                 <label htmlFor="recipeName" className="form-label">
                   <span className="">Recipe Name</span>
@@ -84,7 +90,7 @@ function NewDrink() {
                 />
               </div>
               <div className="mt-4">
-                <label for="files" className="form-label">
+                <label htmlFor="files" className="form-label">
                   <span className="">Image</span>
                 </label>
                 <input
@@ -92,6 +98,7 @@ function NewDrink() {
                   type="file"
                   id="files"
                   name="files"
+                  value={recipe.image}
                 />
               </div>
               <div className="mt-4">
@@ -115,7 +122,7 @@ function NewDrink() {
                             i,
                             recipeList,
                             setRecipeList,
-                            "recipeList"
+                            "ingredients"
                           )
                         }
                       />
@@ -134,7 +141,7 @@ function NewDrink() {
                             i,
                             recipeList,
                             setRecipeList,
-                            "recipeList"
+                            "ingredients"
                           )
                         }
                       />
@@ -151,7 +158,7 @@ function NewDrink() {
                             i,
                             recipeList,
                             setRecipeList,
-                            "recipeList"
+                            "ingredients"
                           )
                         }
                       />
@@ -163,7 +170,7 @@ function NewDrink() {
                               recipeList,
                               setRecipeList,
                               i,
-                              "recipeList"
+                              "ingredients"
                             )
                           }
                         >
@@ -178,7 +185,7 @@ function NewDrink() {
                               x,
                               recipeList,
                               setRecipeList,
-                              "recipeList"
+                              "ingredients"
                             )
                           }
                         >
@@ -210,7 +217,7 @@ function NewDrink() {
                             i,
                             stepList,
                             setStepList,
-                            "stepList"
+                            "steps"
                           )
                         }
                       />
@@ -219,12 +226,7 @@ function NewDrink() {
                         <button
                           className="btn-round mr-2 "
                           onClick={() =>
-                            handleRemoveClick(
-                              stepList,
-                              setStepList,
-                              i,
-                              "recipeList"
-                            )
+                            handleRemoveClick(stepList, setStepList, i, "steps")
                           }
                         >
                           <i className="fa-solid fa-minus"></i>
@@ -234,12 +236,7 @@ function NewDrink() {
                         <button
                           className="btn-round "
                           onClick={() =>
-                            handleAddClick(
-                              x,
-                              stepList,
-                              setStepList,
-                              "recipeList"
-                            )
+                            handleAddClick(x, stepList, setStepList, "steps")
                           }
                         >
                           <i className="fa-solid fa-plus"></i>
@@ -255,10 +252,15 @@ function NewDrink() {
                 </label>
                 <textarea
                   className="border border-gray-200 py-2 px-2 rounded-md shadow-sm outline-none w-full"
-                  value={null}
+                  value={recipe.description}
                   onChange={(e) => onChangeHandler(e, "description")}
                   rows="3"
                 />
+              </div>
+              <div className="flex-grow align-baseline text-lg text-center px-4 py-2  border rounded-full shadow-md  bg-red-500 text-white hover:bg-red-600 hover:shadow-lg mt-4 transition duration-300 ease-in-out">
+                <button className="font-body font-semibold " type="submit">
+                  Create Recipe
+                </button>
               </div>
             </form>
           </div>
