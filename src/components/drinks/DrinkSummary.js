@@ -11,7 +11,7 @@ function DrinkSummary({ recipe }) {
           <div className="relative w-full h-64 sm:h-full sm:w-48 overflow-hidden flex-shrink-0">
             <div className="absolute w-full h-full bg-gray-50 flex-shrink-0 transform transition hover:scale-110 ease-in-out duration-500">
               <span className="m-4">
-                <img src={image} alt="cocktail thumbnail" />
+                <img src={recipe.image} alt={recipe.recipeName} />
               </span>
             </div>
             <div className="absolute w-full h-full flex items-center justify-center opacity-0 hover:opacity-100 transition ease-in-out">

@@ -274,7 +274,6 @@ function DynamicForm() {
                   Create Recipe
                 </button>
               </div>
-              {console.log(recipe)}
             </form>
           </div>
         </div>

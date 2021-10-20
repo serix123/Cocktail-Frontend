@@ -1,9 +1,22 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import FileBase from "react-file-base64";
-import { useDispatch } from "react-redux";
-import { createRecipes } from "../../redux/actions/recipeActions";
+import { useDispatch, useSelector } from "react-redux";
+import { createRecipes,updateRecipe } from "../../redux/actions/recipeActions";
 
-function DynamicForm() {
+function UpdateForm(props) {
+  const RecipeId = props.match.params.id;
+  const oldRecipe = useSelector((state) =>
+    RecipeId ? state.recipes.find((recipe) => recipe._id === RecipeId) : null
+  );
+
+  useEffect(() => {
+    if (oldRecipe) {
+      setRecipe(oldRecipe);
+      setRecipeList(oldRecipe.ingredients);
+      setStepList(oldRecipe.steps);
+    }
+  }, [oldRecipe]);
+  
   const [recipe, setRecipe] = useState({
     recipeName: "",
     image: "",
@@ -14,13 +27,18 @@ function DynamicForm() {
   const [recipeList, setRecipeList] = useState([
     { ingredientName: "", qty: Number, qtyType: "" },
   ]);
+
   const [stepList, setStepList] = useState([{ step: "" }]);
   const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    dispatch(createRecipes(recipe));
+    if (oldRecipe) {
+      dispatch(updateRecipe(RecipeId, recipe));
+    } else {
+      dispatch(createRecipes(recipe));
+    }
+        
     setRecipe({
       recipeName: "",
       image: "",
@@ -38,6 +56,7 @@ function DynamicForm() {
       return { ...prevState, [fieldName]: event.target.value };
     });
   };
+
   // for array functions
   const handleInputChange = (e, index, state, setState, fieldName) => {
     const { name, value, type } = e.target;
@@ -271,10 +290,9 @@ function DynamicForm() {
                   className="font-body font-semibold w-full "
                   type="submit"
                 >
-                  Create Recipe
+                  {oldRecipe?"Update Recipe":"Create Recipe"}
                 </button>
               </div>
-              {console.log(recipe)}
             </form>
           </div>
         </div>
@@ -287,4 +305,4 @@ function DynamicForm() {
   );
 }
 
-export default DynamicForm;
+export default UpdateForm;

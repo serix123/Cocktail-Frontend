@@ -12,6 +12,7 @@ import Recipes from './components/nav/Recipes';
 import NewDrink from './components/drinks/NewDrink'
 import DrinkSummary from "./components/drinks/DrinkDetails";
 import DynamicForm from './components/drinks/DynamicForm'
+import UpdateForm from './components/drinks/UpdateDrink'
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
           <Switch>
             <Route path="/Browse" component={Recipes} />
             <Route path="/Recipe/:id" component={DrinkSummary} exact></Route>
+            <Route path="/Update/:id" component={UpdateForm} exact></Route>
             <Route path="/newRecipe" component={DynamicForm} />
             <Route path="/Create" component={NewDrink} />
             <Route path="/About" component={Recipes} />
