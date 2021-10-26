@@ -20,7 +20,7 @@ function App() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getRecipes());
-  }, [dispatch])
+  }, [dispatch,])
 
   return (
     <BrowserRouter>

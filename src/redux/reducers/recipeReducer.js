@@ -24,7 +24,7 @@ export const recipeReducer = (recipes = [], action) => {
       return recipes;
 
     case GET_RECIPE:
-      return recipes;
+      return action.payload;
     
     default:
       return recipes;
