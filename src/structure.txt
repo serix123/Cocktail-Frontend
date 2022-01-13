@@ -1,0 +1,27 @@
+
+API
+  user
+  recipes
+
+redux
+  actions
+  constants
+  reducers
+
+modules
+  navigation
+
+  about
+    component
+
+  home
+    component
+
+  create recipe
+  update recipe
+
+  delete recipe
+
+  constants
+
+assets
